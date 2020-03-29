@@ -951,8 +951,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9a395d9436ff4b40b9dbc802d6a6974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemPrefab: {fileID: 6028976510865761473, guid: 68d852c79a984c544936c68fadf6f54c,
-    type: 3}
 --- !u!1001 &3523824329889701328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1099,10 +1097,15 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 513711371, guid: a85f68f7b09d305489261296167dcfa1, type: 3}
+      propertyPath: _itemPrefab
+      value: 
+      objectReference: {fileID: 6028976510865761473, guid: 68d852c79a984c544936c68fadf6f54c,
+        type: 3}
     - target: {fileID: 3523824329091982255, guid: a85f68f7b09d305489261296167dcfa1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 3523824329091982160, guid: a85f68f7b09d305489261296167dcfa1,
         type: 3}

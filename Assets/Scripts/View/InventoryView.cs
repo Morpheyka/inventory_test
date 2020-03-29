@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InventoryView : MonoBehaviour
 {
-    [SerializeField] private GameObject _itemPrefab;
     private EquipView _equip;
     private BagView _bag;
 
@@ -17,6 +14,6 @@ public class InventoryView : MonoBehaviour
     public void BagInit(PlayerBag bag)
     {
         _bag = FindObjectOfType<BagView>();
-        _bag.Initialization(bag, _itemPrefab);
+        _bag.Initialization(bag);
     }
 }

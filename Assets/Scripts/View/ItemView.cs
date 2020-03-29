@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public abstract class ItemView : MonoBehaviour, IDragHandler, IEndDragHandler
 {
-    public Action<Item> OnRemoveItem;
-    public Action<Item> OnEquipItem;
+    public abstract event Action<Item> OnRemoveItem;
+    public abstract event Action<Item> OnEquipItem;
 
     protected Item _item;
     protected Image _icon;

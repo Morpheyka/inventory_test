@@ -1,10 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerEquipment
 {
-    public event Action<Item> OnItemRemove;
-
     public readonly EquipmentSlot[] items;
 
     public PlayerEquipment()

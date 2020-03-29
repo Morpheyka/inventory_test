@@ -1,21 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BagView : MonoBehaviour
 {
+    [SerializeField] private GameObject _itemPrefab;
     private Transform _content;
     private List<BagItemView> _items;
 
-    public void Initialization(PlayerBag bag, GameObject itemPrefab)
+    public void Initialization(PlayerBag bag)
     {
         int bagCapacity = bag.items.Capacity;
         int bagItemsCount = bag.items.Count;
 
         for (int i = 0; i < bagCapacity; i++)
         {
-            GameObject item = Instantiate(itemPrefab, _content);
+            GameObject item = Instantiate(_itemPrefab, _content);
             BagItemView view = item.GetComponent<BagItemView>();
             bool noMoreItems = i >= bagItemsCount;
 

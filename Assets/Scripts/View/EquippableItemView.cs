@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class EquippableItemView : ItemView
 {
+    public override event Action<Item> OnRemoveItem;
+    public override event Action<Item> OnEquipItem;
+
     public ItemType Type => _type;
     [SerializeField] private ItemType _type;
 
