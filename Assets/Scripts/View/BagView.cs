@@ -6,31 +6,37 @@ using UnityEngine.UI;
 public class BagView : MonoBehaviour
 {
     private Transform _content;
-    private List<ItemView> _items;
+    private List<BagItemView> _items;
 
-    public void Initialization(List<Item> bag, GameObject itemPrefab)
+    public void Initialization(PlayerBag bag, GameObject itemPrefab)
     {
-        for (int i = 0; i < bag.Capacity; i++)
+        int bagCapacity = bag.items.Capacity;
+        int bagItemsCount = bag.items.Count;
+
+        for (int i = 0; i < bagCapacity; i++)
         {
             GameObject item = Instantiate(itemPrefab, _content);
-            ItemView view = item.GetComponent<ItemView>();
+            BagItemView view = item.GetComponent<BagItemView>();
+            bool noMoreItems = i >= bagItemsCount;
 
             _items.Add(view);
 
-            if (i >= bag.Count)
+            if (noMoreItems)
             {
                 Item empty = ScriptableObject.CreateInstance<Item>();
                 view.SetItem(empty, out _);
                 continue;
             }
 
-            view.SetItem(bag[i], out _);
+            view.SetItem(bag.items[i], out _);
+            view.OnEquipItem += bag.Add;
+            view.OnRemoveItem += bag.Remove;
         }
     }
 
     private void Awake()
     {
         _content = GetComponentInChildren<ContentSizeFitter>().transform;
-        _items = new List<ItemView>();
+        _items = new List<BagItemView>();
     }
 }

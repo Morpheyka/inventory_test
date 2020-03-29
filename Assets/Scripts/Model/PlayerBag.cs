@@ -14,11 +14,14 @@ public class PlayerBag
     {
         _ = targetItem != null 
             ? targetItem 
-            : throw new System.ArgumentNullException();
+            : throw new System.ArgumentNullException(paramName: nameof(targetItem),
+            message: "Can't add in bag NULL item.");
 
-        if (IsFull())
+        bool isFull = items.Count == DEFAULT_SIZE;
+
+        if (isFull)
         {
-            Debug.Log("Bag is full;");
+            Debug.Log("Bag is full.");
             return;
         }
 
@@ -26,6 +29,14 @@ public class PlayerBag
         Debug.Log($"{targetItem.name} added in bag");
     }
 
-    public bool IsFull() =>
-        items.Count == DEFAULT_SIZE;
+    public void Remove(Item removedTarget)
+    {
+        _ = removedTarget != null
+            ? removedTarget
+            : throw new System.ArgumentNullException(paramName: nameof(removedTarget),
+            message: "Can't remove in bag NULL item.");
+
+        items.Remove(removedTarget);
+        Debug.Log($"{removedTarget.name} removed from bag");
+    }
 }

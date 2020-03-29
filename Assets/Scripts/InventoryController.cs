@@ -24,8 +24,8 @@ public class InventoryController : MonoBehaviour
         LoadEquip();
         LoadBag();
 
-        _view.EquipInit(_equip.items);
-        _view.BagInit(_bag.items);
+        _view.EquipInit(_equip);
+        _view.BagInit(_bag);
     }
 
     private void LoadBag()

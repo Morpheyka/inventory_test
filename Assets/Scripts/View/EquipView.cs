@@ -4,25 +4,33 @@ public class EquipView : MonoBehaviour
 {
     private EquippableItemView[] _items;
 
-    public void Initialization(EquipmentSlot[] items)
+    public void Initialization(PlayerEquipment equip)
     {
         FindItemsView();
-        RenderItems(items);
+        RenderItems(equip);
     }
 
     private void FindItemsView() =>
         _items = GetComponentsInChildren<EquippableItemView>();
 
-    private void RenderItems(EquipmentSlot[] items)
+    private void RenderItems(PlayerEquipment equip)
     {
-        for (int i = 0; i < _items.Length; i++)
+        int itemsCount = _items.Length;
+        int equipCount = equip.items.Length;
+
+        for (int i = 0; i < itemsCount; i++)
         {
-            for (int j = 0; j < items.Length; j++)
+            for (int j = 0; j < equipCount; j++)
             {
-                if (_items[i].Type != items[j].type)
+                bool nonRequireItemType = _items[i].Type != equip.items[j].type;
+
+                if (nonRequireItemType)
                     continue;
 
-                _items[i].SetItem(items[j].Item, out _);
+                EquippableItemView view = _items[i];
+                view.SetItem(equip.items[j].Item, out _);
+                view.OnRemoveItem += equip.Remove;
+                view.OnEquipItem += equip.Equip;
             }
         }
     }

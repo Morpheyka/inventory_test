@@ -12,22 +12,17 @@ public class EquippableItemView : ItemView
 
     public override bool SetItem(Item targetItem, out Item previousItem)
     {
-        bool targetIsEmpty = targetItem.type == ItemType.Empty;
         bool nonRequireItemType = _type != targetItem.type && targetItem.type != ItemType.Empty;
         previousItem = null;
 
         if (nonRequireItemType)
             return false;
 
-        if (targetIsEmpty)
-        {
-            RenderItem(targetItem);
-            return true;
-        }
-
         previousItem = _item;
         RenderItem(targetItem);
 
+        OnRemoveItem?.Invoke(previousItem);
+        OnEquipItem?.Invoke(targetItem);
         Debug.Log($"{targetItem.itemName} put on in equip.");
 
         return true;

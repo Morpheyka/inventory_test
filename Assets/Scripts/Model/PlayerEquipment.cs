@@ -35,6 +35,6 @@ public class PlayerEquipment
             if (slot.Item == targetItem)
                 slot.Item = null;
 
-        Debug.Log($"{targetItem} removed from inventory.");
+        Debug.Log($"{targetItem} - removed from inventory.");
     }
 }

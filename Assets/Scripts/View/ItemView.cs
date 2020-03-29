@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public abstract class ItemView : MonoBehaviour, IDragHandler, IEndDragHandler
 {
+    public Action<Item> OnRemoveItem;
+    public Action<Item> OnEquipItem;
+
     protected Item _item;
     protected Image _icon;
     protected Text _title;

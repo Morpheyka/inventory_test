@@ -10,6 +10,8 @@ public class BagItemView : ItemView
         _icon.color = targetItem.color;
         _title.text = targetItem.itemName;
 
+        OnRemoveItem?.Invoke(previousItem);
+        OnEquipItem?.Invoke(targetItem);
         Debug.Log($"{targetItem.itemName} put on.");
 
         return true;
