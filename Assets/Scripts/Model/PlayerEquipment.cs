@@ -23,15 +23,15 @@ public class PlayerEquipment
             if(slot.type == targetItem.type)
                 slot.Item = targetItem;
 
-        Debug.Log($"{targetItem.name} - added in inventory.");
+        Debug.Log($"{targetItem.itemName} - added in inventory.");
     }
 
-    public void Remove(Item targetItem)
+    public void Remove(Item removedItem)
     {
         foreach (EquipmentSlot slot in items)
-            if (slot.Item == targetItem)
+            if (slot.Item == removedItem)
                 slot.Item = null;
 
-        Debug.Log($"{targetItem} - removed from inventory.");
+        Debug.Log($"Item removed from inventory.");
     }
 }

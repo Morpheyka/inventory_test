@@ -963,6 +963,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 3523824330033264200, guid: a85f68f7b09d305489261296167dcfa1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3523824330033264201, guid: a85f68f7b09d305489261296167dcfa1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1105,7 +1110,7 @@ PrefabInstance:
     - target: {fileID: 3523824329091982255, guid: a85f68f7b09d305489261296167dcfa1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
+      value: 0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 3523824329091982160, guid: a85f68f7b09d305489261296167dcfa1,
         type: 3}
